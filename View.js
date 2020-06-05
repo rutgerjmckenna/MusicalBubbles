@@ -1,6 +1,7 @@
 function View(canvas) {
     this.canvas = canvas;
     this.clicks = [];
+    this.frameRate = 1000/30;
 }
 
 View.prototype.handleClick = function(e) {
