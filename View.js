@@ -7,9 +7,7 @@ View.prototype.handleClick = function(e) {
     var view = this;
     var x = e.offsetX;
     var y = e.offsetY;
-
     var pos = view.clicks.push({x: x, y: y, radius: 100})
-    console.log("Add a circle at", x, ", ", y);
 }
 
 View.prototype.updateDisplay = function() {
@@ -19,7 +17,10 @@ View.prototype.updateDisplay = function() {
     context.fillStyle = 'black';
     context.fillRect(0, 0, view.canvas.width, view.canvas.height);
 
-    view.drawCircle(context, 150, 150, 100, 1);
+    for (var i=0; i < view.clicks.length; i++) {
+        var circle = view.clicks[i];
+        view.drawCircle(context, 150, 150, 100, 1);
+    }
 };
 
 View.prototype.drawCircle = function(context, x, y, radius, alpha) {
